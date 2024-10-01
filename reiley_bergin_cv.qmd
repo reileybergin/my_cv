@@ -57,30 +57,21 @@ source("functions.R")
 
 # Education
 
+\setlength{\tabcolsep}{4pt}
 \vspace{-10pt}
 \begin{longtable}{lll}
 
-    2016 & Carnegie Mellon University, Pittsburgh, PA & Ph.D. Engineering and Public Policy\\
+    2024 & University of Kentucky, Lexington, KY & Ph.D. Rehabilitation Sciences\\
 
-    \multicolumn{3}{l}{Dissertation: \emph{Development and Adoption of Plug-in Electric Vehicles in China: Markets, Policy, and Innovation}}\\
+    \multicolumn{3}{p{\dimexpr\textwidth-2\tabcolsep}}{\small \raggedright Dissertation: \emph{Using Inertial Measurement Units (IMUs) to Assess Fatigue-\-Related Changes in Running: Applications in Training Load Management}}\\
     
-    \multicolumn{3}{l}{Doctoral Committee: \emph{Jeremy Michalek, Erica Fuchs, Elea McDonnell Feit, \& Valerie Karplus}}\\[5pt]
+    \multicolumn{3}{l}{Doctoral Committee: \emph{Nick Heebner, Stuart Best, Matt Hoch, \& Josh Winters}}\\[5pt]
     
-    2015 & Carnegie Mellon University, Pittsburgh, PA & M.S. Engineering and Public Policy\\
+    2016 & Florida State University, Tallahassee, FL & M.S. Exercise Physiology\\
 
-    2010 & Virginia Tech, Blacksburg, VA & B.S. Engineering Science and Mechanics\\[5pt]
-
-    \multicolumn{2}{l}{\textbf{Mandarin Chinese Training}}\\
-
-    2010 & National Taiwan University, Taipei, Taiwan & Business Chinese (Huayu Scholarship) \\
-
-    2009 & Heilongjiang University, Harbin, China & Intensive Chinese (Critical Language Scholarship)\\
-
-    2008 & Liaoning Normal University, Dalian, China & Independent Study (Horton Scholarship)\\
+    2014 & Indiana University, Bloomington, IN & B.S. Biology\\[5pt]
 
 \end{longtable}
-
-\vspace{-10pt}
 
 \vspace{-10pt}
 
@@ -88,11 +79,9 @@ source("functions.R")
 
 \vspace{-10pt}
 \begin{longtable}{llp{15cm}}
-2018 - Present & \textbf{George Washington University}, Washington, D.C.& \\
- & Assistant Professor, Engineering Management and Systems Engineering\\[5pt]
+2024 - Present & \textbf{University of Kentucky}, Lexington, KY & \\
+ & Assistant Professor, Athletic Training and Clinical Nutrition\\[5pt]
 
-2016 - 2018 & \textbf{Boston University}, Boston, MA & \\
- & Postdoctoral Fellow, Institute for Sustainable Energy\\
 \end{longtable}
 
 \vspace{-10pt}
