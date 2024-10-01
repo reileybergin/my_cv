@@ -75,7 +75,7 @@ source("functions.R")
 
 \vspace{-10pt}
 
-# Academic Appointments
+# Professional Experiences
 
 \vspace{-10pt}
 \begin{longtable}{llp{15cm}}
@@ -86,21 +86,16 @@ source("functions.R")
 
 \vspace{-10pt}
 
-# Research Interests
-
-- **Add Later**: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus est nulla, ac blandit nulla venenatis ac. Nam molestie enim ut erat dictum, id feugiat dolor scelerisque.
-- **Add Later**: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus est nulla, ac blandit nulla venenatis ac. Nam molestie enim ut erat dictum, id feugiat dolor scelerisque.
-- **Add Later**: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus est nulla, ac blandit nulla venenatis ac. Nam molestie enim ut erat dictum, id feugiat dolor scelerisque.
-- **Add Later**: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus est nulla, ac blandit nulla venenatis ac. Nam molestie enim ut erat dictum, id feugiat dolor scelerisque.
+# Academic Appointments
 
 \vspace{-10pt}
+\begin{longtable}{llp{15cm}}
+2024 - Present & \textbf{University of Kentucky}, Lexington, KY & \\
+ & Assistant Professor, Athletic Training and Clinical Nutrition\\[5pt]
 
-# Teaching Interests
+\end{longtable}
 
-- **Add Later**: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus est nulla, ac blandit nulla venenatis ac. Nam molestie enim ut erat dictum, id feugiat dolor scelerisque.
-- **Add Later**: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus est nulla, ac blandit nulla venenatis ac. Nam molestie enim ut erat dictum, id feugiat dolor scelerisque.
-- **Add Later**: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus est nulla, ac blandit nulla venenatis ac. Nam molestie enim ut erat dictum, id feugiat dolor scelerisque.
-
+\vspace{-10pt}
 
 # External Grants
 
