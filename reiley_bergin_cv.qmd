@@ -78,14 +78,14 @@ source("functions.R")
 
 \vspace{-10pt}
 \begin{longtable}{llp{15cm}}
-2024 - Present & \textbf{University of Kentucky}, Lexington, KY & \\
- & Assistant Professor, Athletic Training and Clinical Nutrition\\[5pt]
-2024 - Present & \textbf{University of Kentucky}, Lexington, KY & \\
- & Assistant Professor, Athletic Training and Clinical Nutrition\\[5pt]
-2024 - Present & \textbf{University of Kentucky}, Lexington, KY & \\
- & Assistant Professor, Athletic Training and Clinical Nutrition\\[5pt]
-2024 - Present & \textbf{University of Kentucky}, Lexington, KY & \\
- & Assistant Professor, Athletic Training and Clinical Nutrition\\
+2020 - 2024 & \textbf{University of Kentucky}, Lexington, KY & \\
+ & Research Analyst Principal, Sports Medicine Research Institute (SMRI)\\[5pt]
+2017 - 2020 & \textbf{University of Kentucky}, Lexington, KY & \\
+ & Graduate Research Assistant, Sports Medicine Research Institute (SMRI)\\[5pt]
+2016 & \textbf{Florida State University}, Tallahassee, FL & \\
+ & Graduate Assistant, Athletic Department\\[5pt]
+2015 & \textbf{University of Notre Dame}, South Bend, IN & \\
+ & Sports Science Intern, Athletic Department\\
 \end{longtable}
 
 \vspace{-10pt}
