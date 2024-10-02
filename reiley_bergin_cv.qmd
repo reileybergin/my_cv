@@ -35,7 +35,6 @@ knitr::opts_chunk$set(
 )
 
 source("functions.R")
-
 ```
 
 \par\centering{\LARGE{Reiley Thomas Bergin, Ph.D.}}
@@ -96,6 +95,149 @@ source("functions.R")
 \end{longtable}
 
 \vspace{-10pt}
+
+# Research and/or Creative Productivity
+
+## Publications
+
+<!-- Set spacing in between list -->
+
+\apptocmd{\tightlist}{\setlength{\itemsep}{4pt}}{}{}
+
+<!--
+ORCID: \href{https://--- ADD LATER ---} \| [Google Scholar Profile](https://--- ADD LATER ---)
+-->
+
+\underline{Underline} indicates advisee; \* graduate student, \*\*undergraduate student
+
+### A. Refereed/Peer reviewed
+
+#### 1. Published Journal Articles
+
+```{r}
+pubs <- get_cv_sheet('pubs') %>%
+  mutate(
+    journal  = ifelse(is.na(journal), '', paste0('_', journal, '_.')),
+    number   = ifelse(is.na(number), '', paste0(number, '.')),
+    doi      = ifelse(
+               is.na(doi), '',
+               paste0('DOI: [', doi, '](', 'https://doi.org/', doi, ')')),
+    year     = paste0("(", year, ")"),
+    title    = enquote(title),
+    citation = paste(author, year, title, journal, number, doi)
+  ) %>% 
+  arrange(desc(pub_date))
+```
+
+```{r}
+#| results: asis
+
+make_ordered_list_filtered(pubs, "peer_reviewed")
+```
+
+#### 2. Publications Submitted or in Preparation
+
+```{r}
+#| results: asis
+ 
+make_ordered_list_filtered(pubs, "working")
+```
+
+#### 3. Theses
+
+```{r}
+#| results: asis
+
+make_ordered_list_filtered(pubs, "theses")
+```
+
+#### 4. Abstracts/Peer-Reviewed Original Research
+
+# Presentations / Conferences
+
+```{r}
+presentations <- get_cv_sheet('presentations') %>%
+  arrange(desc(date)) %>% 
+  mutate(
+    with = ifelse(is.na(with), '', paste0(', with ', with)),
+    title = paste0(enquote(title), with),
+    title = ifelse(is.na(series), title, paste(title, series, sep = '. ')),
+    date = paste0(format(as.Date(date), format = "%b %d, %Y"), '.'),
+    citation = paste(title, host, location, date, sep = '. ')
+  )
+
+presentation_counts <- presentations %>%
+  count(category) %>% 
+  left_join(data.frame(
+    category = c(
+      "invited", "panelist", "conference", "poster", "organizer", "discussant"
+    ), 
+    order = seq(6)
+  )) %>% 
+  mutate(
+    category = str_to_title(category),
+    category = ifelse(category == 'Invited', 'Invited Speaker', category),
+    category = ifelse(category == 'Panelist', 'Invited Panelist', category),
+    category = ifelse(category == 'Conference', 'Conference Presentation', category),
+    category = ifelse(category == 'Poster', '\\newline Poster Presentation', category),
+    cite = paste0(category, ' (', n, ')')
+  ) %>%
+  arrange(order) %>% 
+  pull(cite) %>% 
+  paste(collapse = ', ')
+```
+
+**Total Presentations by Category**:
+
+`r presentation_counts`
+
+## A. Invited Speaker
+
+```{r}
+#| results: asis
+
+make_ordered_list_filtered(presentations, "invited")
+```
+
+## B. Invited Panelist
+
+```{r}
+#| results: asis
+
+make_ordered_list_filtered(presentations, "panelist")
+```
+
+## C. Conference Presentations
+
+```{r}
+#| results: asis
+
+make_ordered_list_filtered(presentations, "conference")
+```
+
+## D. Conference Panel Organizer / Chair
+
+```{r}
+#| results: asis
+
+make_ordered_list_filtered(presentations, "organizer")
+```
+
+## E. Posters
+
+```{r}
+#| results: asis
+
+make_ordered_list_filtered(presentations, "poster")
+```
+
+## F. Discussant
+
+```{r}
+#| results: asis
+
+make_ordered_list_filtered(presentations, "discussant")
+```
 
 # External Grants
 
@@ -194,168 +336,6 @@ awards %>%
   filter(category != 'student') %>% 
   pull(citation) %>% 
   make_bullet_list()
-```
-
-# Publications
-
-<!-- Set spacing in between list -->
-
-\apptocmd{\tightlist}{\setlength{\itemsep}{4pt}}{}{}
-
-ORCID: \href{https://orcid.org/0000-0002-2657-9191}{0000-0002-2657-9191} \| [Google Scholar Profile](https://scholar.google.com/citations?user=DY2D56IAAAAJ&hl=en)
-
-\underline{Underline} indicates advisee; \* graduate student, \*\*undergraduate student
-
-\begin{small}
-\emph{Note on author order: In my field, it is conventional that the last author denotes intellectual direction by the senior author when advised student(s) are engaged on the study. On non–student papers, authorship effort is denoted in standard order}.
-\end{small}
-
-## A. Refereed Journal Articles
-
-```{r}
-pubs <- get_cv_sheet('pubs') %>%
-  mutate(
-    journal  = ifelse(is.na(journal), '', paste0('_', journal, '_.')),
-    number   = ifelse(is.na(number), '', paste0(number, '.')),
-    doi      = ifelse(
-               is.na(doi), '',
-               paste0('DOI: [', doi, '](', 'https://doi.org/', doi, ')')),
-    year     = paste0("(", year, ")"),
-    title    = enquote(title),
-    citation = paste(author, year, title, journal, number, doi)
-  ) %>% 
-  arrange(desc(pub_date))
-```
-
-```{r}
-#| results: asis
-
-make_ordered_list_filtered(pubs, "peer_reviewed")
-```
-
-## B. Refereed Articles in Conference Proceedings
-
-```{r}
-#| results: asis
-
-make_ordered_list_filtered(pubs, "conference")
-```
-
-## C. Working Papers & Papers Under Review
-
-```{r}
-#| results: asis
- 
-make_ordered_list_filtered(pubs, "working")
-```
-
-## H. Theses
-
-```{r}
-#| results: asis
-
-make_ordered_list_filtered(pubs, "theses")
-```
-
-## I. Software
-
-```{r}
-#| results: asis
-
-# downloads <- cranlogs::cran_downloads(
-#     package = c("logitr", "cbcTools", "renderthis"),
-#     from = '2020-01-01'
-# ) %>% 
-#     group_by(package) %>% 
-#     summarise(count = sum(count))
- 
-make_ordered_list_filtered(pubs, "software")
-```
-
-# Presentations / Conferences
-
-```{r}
-presentations <- get_cv_sheet('presentations') %>%
-  arrange(desc(date)) %>% 
-  mutate(
-    with = ifelse(is.na(with), '', paste0(', with ', with)),
-    title = paste0(enquote(title), with),
-    title = ifelse(is.na(series), title, paste(title, series, sep = '. ')),
-    date = paste0(format(as.Date(date), format = "%b %d, %Y"), '.'),
-    citation = paste(title, host, location, date, sep = '. ')
-  )
-
-presentation_counts <- presentations %>%
-  count(category) %>% 
-  left_join(data.frame(
-    category = c(
-      "invited", "panelist", "conference", "poster", "organizer", "discussant"
-    ), 
-    order = seq(6)
-  )) %>% 
-  mutate(
-    category = str_to_title(category),
-    category = ifelse(category == 'Invited', 'Invited Speaker', category),
-    category = ifelse(category == 'Panelist', 'Invited Panelist', category),
-    category = ifelse(category == 'Conference', 'Conference Presentation', category),
-    category = ifelse(category == 'Poster', '\\newline Poster Presentation', category),
-    cite = paste0(category, ' (', n, ')')
-  ) %>%
-  arrange(order) %>% 
-  pull(cite) %>% 
-  paste(collapse = ', ')
-```
-
-**Total Presentations by Category**:
-
-`r presentation_counts`
-
-## A. Invited Speaker
-
-```{r}
-#| results: asis
-
-make_ordered_list_filtered(presentations, "invited")
-```
-
-## B. Invited Panelist
-
-```{r}
-#| results: asis
-
-make_ordered_list_filtered(presentations, "panelist")
-```
-
-## C. Conference Presentations
-
-```{r}
-#| results: asis
-
-make_ordered_list_filtered(presentations, "conference")
-```
-
-## D. Conference Panel Organizer / Chair
-
-```{r}
-#| results: asis
-
-make_ordered_list_filtered(presentations, "organizer")
-```
-
-## E. Posters
-
-```{r}
-#| results: asis
-
-make_ordered_list_filtered(presentations, "poster")
-```
-
-## F. Discussant
-
-```{r}
-#| results: asis
-
-make_ordered_list_filtered(presentations, "discussant")
 ```
 
 # Selected Media Coverage: Impact of Research in Society
