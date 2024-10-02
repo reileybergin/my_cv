@@ -1,8 +1,7 @@
 \usepackage{marvosym} % Allows the use of symbols
-\usepackage{parskip} % Spacing adjustments
+\usepackage{parskip}  % Spacing adjustments
 
 % Main font
-
 \usepackage{fontspec}
 \setmainfont{Raleway}[
   Path           = ./fonts/,  % Adjust the path to match where you've placed the fonts
@@ -13,8 +12,8 @@
   BoldItalicFont = *-BoldItalic
 ]
 \setsansfont{Raleway}[
-  Path           = ./fonts/,  % Adjust the path to match where you've placed the fonts
-  Extension      = .ttf,      % or .otf, depending on the font files you have
+  Path           = ./fonts/,
+  Extension      = .ttf,
   UprightFont    = *-Regular,
   BoldFont       = *-Bold,
   ItalicFont     = *-Italic,
@@ -22,30 +21,41 @@
 ]
 
 % Chinese font
-
 \usepackage{xeCJK} % For Chinese text
 \setCJKmainfont[Path = ./fonts/]{kaiti.ttf}
 
-% Numbers - different font for digits because Raleway is bad. From here:
-% https://tex.stackexchange.com/a/440174
-
+% Numbers - different font for digits because Raleway is suboptimal for numbers
+% Reference: https://tex.stackexchange.com/a/440174
 
 % Header and footer
-
 \usepackage{fancyhdr}
+\usepackage{lastpage} % Required for \pageref{LastPage}
+\usepackage{xcolor}   % For text colors
+\usepackage{hyperref} % For hyperlinks
+\usepackage{url}      % For handling URLs
 
 \pagestyle{fancy}
 \fancyhf{}
+
+% Left footer
 \fancyfoot[L]{\textcolor{gray}{\footnotesize\emph{Updated \today}}}
-\fancyfoot[R]{\textcolor{gray}{\footnotesize\emph{Available at \href{https://github.com/jhelvy/cv}{https://github.com/jhelvy/cv}}}}
+
+% Right footer with URL using \url{}
+\fancyfoot[R]{\textcolor{gray}{\footnotesize\emph{Available at \url{https://github.com/reileybergin/my_cv}}}}
+
+% Center footer
 \fancyfoot[C]{\textcolor{gray}{\footnotesize\emph{Page \thepage\ of \pageref{LastPage}}}}
-\renewcommand{\headrulewidth}{0pt} % Removes the header line
-\renewcommand{\footrulewidth}{0pt} % Removes the footer line
-\usepackage{lastpage} % Required for \pageref{LastPage}
 
-% Links
+% Remove header and footer lines
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
-\usepackage{hyperref}
-\usepackage{color}
+% Links configuration
 \definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+\hypersetup{
+  colorlinks=true,
+  breaklinks=true,
+  urlcolor=linkcolour,
+  linkcolor=linkcolour,
+  citecolor=linkcolour
+}
