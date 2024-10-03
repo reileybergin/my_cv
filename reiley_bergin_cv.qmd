@@ -135,9 +135,7 @@ df %>%
 
 \apptocmd{\tightlist}{\setlength{\itemsep}{4pt}}{}{}
 
-<!--
-ORCID: \href{https://--- ADD LATER ---} \| [Google Scholar Profile](https://--- ADD LATER ---)
--->
+ORCID: \href{https://orcid.org/0009-0002-5771-033X}{0009-0002-5771-033X} | [Google Scholar Profile](https://scholar.google.com/citations?user=o6oB6AwAAAAJ&hl=en)
 
 \underline{Underline} indicates advisee; \* graduate student, \*\*undergraduate student
 
@@ -163,92 +161,34 @@ pubs <- get_cv_sheet('pubs') %>%
 ```{r}
 #| results: asis
 
-make_ordered_list_filtered(pubs, "peer_reviewed")
+make_ordered_list_filtered(pubs, "peer_rev_pub_article")
 ```
 
-#### 2. Publications Submitted or in Preparation
-
+<!--
+#### 2. Publications Submitted
+-->
 ```{r}
-#| results: asis
+
+# UPDATE once I have some publications in review
+
+# #| results: asis
  
-make_ordered_list_filtered(pubs, "working")
+# make_ordered_list_filtered(pubs, "peer_review_article_in_review")
 ```
 
-#### 3. Theses
+
+#### 2. Theses
 
 ```{r}
 #| results: asis
 
-make_ordered_list_filtered(pubs, "theses")
+make_ordered_list_filtered(pubs, "dissertation")
 ```
 
-#### 4. Abstracts/Peer-Reviewed Original Research
+#### 3. Abstracts/Peer-Reviewed Original Research
 
+```{r}
+#| results: asis
 
-<!-- \newpage -->
-
-<!-- # References -->
-
-<!-- \begin{longtable}{p{7cm} p{8.6cm}} -->
-
-<!--   \textbf{Erica R.H. Fuchs} & \textbf{Jeremy J. Michalek} \\ -->
-
-<!--   Professor & Professor \\ -->
-
-<!--   Department of Engineering and Public Policy & Department of Engineering and Public Policy \\ -->
-
-<!--   Carnegie Mellon University & Department of Mechanical Engineering \\ -->
-
-<!--   Baker Hall 131E & Carnegie Mellon University \\ -->
-
-<!--   5000 Forbes Avenue & Scaife Hall 324 \\ -->
-
-<!--   Pittsburgh, PA 15213 & 5000 Forbes Avenue \\ -->
-
-<!--   Phone: +1 (412) 268-1877 & Pittsburgh, PA 15213 \\ -->
-
-<!--   Email: erhf@andrew.cmu.edu & Phone: +1 (412) 268-3765 \\ -->
-
-<!--   & Email: jmichalek@cmu.edu \\ -->
-
-<!--   &  \\ -->
-
-<!--   \textbf{Elea McDonnell Feit} & \textbf{Valerie J. Karplus}\\ -->
-
-<!--   Associate Professor of Marketing & Associate Professor\\ -->
-
-<!--   LeBow College of Business & Department of Engineering and Public Policy\\ -->
-
-<!--   Drexel University & Carnegie Mellon University\\ -->
-
-<!--   Gerri C. LeBow Hall 828 & Scott Hall 5113\\ -->
-
-<!--   3141 Chestnut Street & 5000 Forbes Avenue\\ -->
-
-<!--   Philadelphia, PA 19104 & Pittsburgh, PA 15213\\ -->
-
-<!--   Phone: +1 (215) 571-4054 & Email: vkarplus@andrew.cmu.edu \\ -->
-
-<!--   Email: efeit@drexel.edu & \\ -->
-
-<!--   &  \\ -->
-
-<!--   \textbf{Peter Fox-Penner} & \textbf{Zoe Szajnfarber} \\ -->
-
-<!--   Director, Institute for Sustainable Energy & Professor \& Department Chair\\ -->
-
-<!--   Questrom School of Business & Engineering Management and Systems Engineering\\ -->
-
-<!--   Boston University & George Washington University\\ -->
-
-<!--   Rafik B. Hariri Building, Room 514A & Science \& Engineering Hall 2670\\ -->
-
-<!--   595 Commonwealth Ave. & 800 22nd Street, NW\\ -->
-
-<!--   Boston, MA 02215 & Washington, DC 20052 \\ -->
-
-<!--   Phone: +1 (617) 353-4298 & Phone: +1 (202) 994-7153\\ -->
-
-<!--   Email: pfoxfp@bu.edu & Email: zszajnfa@gwu.edu\\ -->
-
-<!-- \end{longtable} -->
+make_ordered_list_filtered(pubs, "peer_rev_abstract")
+```
