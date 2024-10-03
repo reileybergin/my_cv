@@ -102,28 +102,52 @@ source("functions.R")
 
 # Teaching Activity
 
-## Courses Taught at University of Kentucky:
+## University of Kentucky:
 
 ```{r}
-df <- get_cv_sheet('classes') %>% 
-    mutate(
-      course = paste0(number, ": ", name), 
-      num = paste(responses, '/', enrolled), 
-      score = paste(inst_mean, '/', dept_mean),
-      semester = ifelse(semester == 'S20', 'S20$^†$', semester)
-    ) %>% 
-    select(
-      `Sem.` = semester,
-      Course = course,
-      Level = level, 
-      `N. Resp. / N. Enrolled` = num,
-      `Instr. FCE* / Dept Mean` = score
-    ) 
+#| results: asis
 
+#| results: asis
+
+# Read and process the data
+df <- get_cv_sheet('classes') %>% 
+  mutate(
+    # Extract Year and Semester from 'semester' column
+    Year = paste0('20', substr(semester, 2, 3)),
+    Sem = case_when(
+      substr(semester, 1, 1) == 'S' ~ 'Spring',
+      substr(semester, 1, 1) == 'F' ~ 'Fall',
+      TRUE ~ 'Unknown'
+    ),
+    Course = course_title,
+    Number = course_number,
+    Students = number_of_students,
+    Role = role
+  ) %>% 
+  select(
+    Year,
+    Sem,
+    Course,
+    Number,
+    Students,
+    Role
+  )
+
+# Create the table
 df %>% 
-  kbl(booktabs = TRUE, escape = FALSE, linesep = "") %>% 
-  column_spec(4, width = "1.8cm") %>% 
-  column_spec(5, width = "2cm") 
+  kbl(
+    booktabs = TRUE, 
+    escape = FALSE, 
+    linesep = ""
+  ) %>% 
+  kable_styling(
+    full_width = FALSE, 
+    position = "center", 
+    latex_options = c("hold_position", "scale_down")
+  ) %>% 
+  column_spec(3, width = "6cm") %>%  # Adjust width for 'Course'
+  column_spec(6, width = "4cm")      # Adjust width for 'Role'
+
   #footnote(symbol = c("", ""))
 ```
 
