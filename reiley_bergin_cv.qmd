@@ -171,10 +171,10 @@ advising_df <- get_cv_sheet('advising') %>%
   ) %>%
   arrange(desc(defense_date))
 
-# Output as a simple paragraph with entries separated by line breaks
-for(i in 1:nrow(advising_df)) {
-  cat(advising_df$entry[i], "\n\n")
-}
+# Output as a numbered list
+advising_df %>%
+  pull(entry) %>%
+  make_ordered_list()
 ```
 
 # Research and/or Creative Productivity
