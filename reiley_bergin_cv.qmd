@@ -177,6 +177,26 @@ advising_df %>%
   make_ordered_list()
 ```
 
+# Administrative Activity and University Service
+
+## College
+
+```{r}
+#| results: asis
+
+# Read and process service data
+service_df <- get_cv_sheet('service') %>%
+  filter(category == 'college', !is.na(activity)) %>%
+  mutate(
+    citation = paste0(activity, ' (', dates, ').')
+  )
+
+# Output as a numbered list
+service_df %>%
+  pull(citation) %>%
+  make_ordered_list()
+```
+
 # Research and/or Creative Productivity
 
 ## Publications
