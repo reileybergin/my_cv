@@ -107,8 +107,6 @@ source("functions.R")
 ```{r}
 #| results: asis
 
-#| results: asis
-
 # Read and process the data
 df <- get_cv_sheet('classes') %>% 
   mutate(
@@ -149,6 +147,34 @@ df %>%
   column_spec(6, width = "4cm")      # Adjust width for 'Role'
 
   #footnote(symbol = c("", ""))
+```
+
+# Advising Activities
+
+## Master's Thesis/Project Committees – Graduates
+
+```{r}
+#| results: asis
+
+# Read and process advising data
+advising_df <- get_cv_sheet('advising') %>%
+  filter(category == 'ms', !is.na(name)) %>%
+  mutate(
+    # Format the defense/graduation date (Excel dates are days since 1970-01-01)
+    grad_text = case_when(
+      complete == 1 ~ format(as.Date(defense_date, origin = "1970-01-01"), "%Y"),
+      complete == 0 ~ paste0("Expected Graduation: ", format(as.Date(defense_date, origin = "1970-01-01"), "%B %Y")),
+      TRUE ~ ""
+    ),
+    # Create the full entry
+    entry = paste0(name, ", ", notes, ", ", grad_text)
+  ) %>%
+  arrange(desc(defense_date))
+
+# Output as a simple paragraph with entries separated by line breaks
+for(i in 1:nrow(advising_df)) {
+  cat(advising_df$entry[i], "\n\n")
+}
 ```
 
 # Research and/or Creative Productivity
