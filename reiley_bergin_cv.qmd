@@ -79,7 +79,7 @@ source("functions.R")
 \vspace{-10pt}
 \begin{longtable}{llp{15cm}}
 2020 - 2024 & \textbf{University of Kentucky}, Lexington, KY & \\
- & Data Scientist, Sports Medicine Research Institute (SMRI)\\[5pt]
+ & Research Analyst Principal, Sports Medicine Research Institute (SMRI)\\[5pt]
 2017 - 2020 & \textbf{University of Kentucky}, Lexington, KY & \\
  & Graduate Research Assistant, Sports Medicine Research Institute (SMRI)\\[5pt]
 2016 & \textbf{Florida State University}, Tallahassee, FL & \\
