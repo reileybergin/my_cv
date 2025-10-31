@@ -257,6 +257,9 @@ make_ordered_list_filtered(pubs, "dissertation")
 
 #### 3. Abstracts/Peer-Reviewed Original Research
 
+<!-- Prevent page breaks within list items -->
+\interlinepenalty=10000
+
 ```{r}
 #| results: asis
 
